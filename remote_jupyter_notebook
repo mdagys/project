@@ -1,0 +1,31 @@
+# From your machine
+$ ssh mdagys@cedar.computecanada.ca
+mdagys@cedar.computecanada.ca's password: 
+
+# On cedar
+$ PRJ #cd /project/def-jlerch/mdagys
+$ salloc -J fastai -D `pwd` --time=24:00:00 --gres=gpu:1 --cpus-per-task=2 --mem-per-cpu 8G --account=def-jlerch
+
+$ module load fastCell
+$ unset XDG_RUNTIME_DIR
+$ jupyter notebook --ip $(hostname -f) --no-browser
+
+[I 13:22:34.917 NotebookApp] Serving notebooks from local directory: /scratch/mdagys/git/project
+[I 13:22:34.918 NotebookApp] The Jupyter Notebook is running at:
+[I 13:22:34.918 NotebookApp] http://cdr296.int.cedar.computecanada.ca:8889/?token=0a1c8a1aeef8edc4c0eadcd5fa7e33ac164b0817cd04f251
+[I 13:22:34.918 NotebookApp]  or http://127.0.0.1:8889/?token=0a1c8a1aeef8edc4c0eadcd5fa7e33ac164b0817cd04f251
+[I 13:22:34.918 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 13:22:35.001 NotebookApp] 
+
+    To access the notebook, open this file in a browser:
+        file:///home/mdagys/.local/share/jupyter/runtime/nbserver-146948-open.html
+    Or copy and paste one of these URLs:
+        http://cdr296.int.cedar.computecanada.ca:8889/?token=0a1c8a1aeef8edc4c0eadcd5fa7e33ac164b0817cd04f251
+     or http://127.0.0.1:8889/?token=0a1c8a1aeef8edc4c0eadcd5fa7e33ac164b0817cd04f251
+     
+# From your machine (*change the local host and cdr #)
+$ ssh -f -N -L localhost:8889:cdr255.int.cedar.computecanada.ca:8889 mdagys@cedar.computecanada.ca
+mdagys@cedar.computecanada.ca's password: 
+
+# In browser
+localhost:8889 in the browser and enter in the token
